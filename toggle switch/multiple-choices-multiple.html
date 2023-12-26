@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Switch Framework</title>
+  <style>
+    .toggle-switch-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: flex;
+      flex-flow: row wrap;
+      background-color: antiquewhite;
+      border: solid 2px #000;
+      border-radius: 32px;
+      padding: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .switch-input {
+      display: none;
+    }
+
+    .switch-label {
+      background-color: transparent;
+      cursor: pointer;
+      z-index: 1;
+      padding: 16px;
+      /* flex-grow: 1; This is optional */
+    }
+
+    .switch-slider {
+      position: absolute;
+      background-color: #ccc;
+      height: 100%;
+      transition: all 0.3s ease-in-out;
+      border-radius: 24px;
+    }
+
+    .toggle-content {
+      display: none;
+    }
+  </style>
+</head>
+<body onresize="resizeEventforToggleSwitch()">
+
+<div class="toggle-switch-wrapper">
+  <div class="toggle-switch">
+    <input type="radio" id="option1" name="toggle" value="option1" checked class="switch-input">
+    <label for="option1" class="switch-label">Option 1</label>
+
+    <input type="radio" id="option2" name="toggle" value="option2" class="switch-input">
+    <label for="option2" class="switch-label">Option 2 Very Long Text</label>
+
+    <input type="radio" id="option3" name="toggle" value="option3" class="switch-input">
+    <label for="option3" class="switch-label">Option 3 Really Very Long Text</label>
+
+    <input type="radio" id="option4" name="toggle" value="option4" class="switch-input">
+    <label for="option4" class="switch-label">Option 4 Really Really Very Very Long Text</label>
+
+    <!-- Add more radio inputs and labels for additional options-->
+
+    <div class="switch-slider"></div>
+  </div>
+</div>
+
+<!-- Associated contents for each toggle option -->
+<div id="option1_content" class="toggle-content">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo nibh vitae arcu sollicitudin accumsan. Ut tempus egestas ligula, a cursus metus. Nulla et eros quis mauris aliquam fermentum. Quisque vitae lorem porttitor, euismod sem sit amet, euismod nibh. Donec accumsan nisi nec massa fermentum congue. Ut interdum imperdiet velit, vel dapibus est vestibulum ac. Cras sodales porttitor arcu, sed molestie sem blandit ornare. Curabitur tempus urna egestas mi convallis porttitor.
+    </p>
+</div>
+
+<div id="option2_content" class="toggle-content">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo nibh vitae arcu sollicitudin accumsan. Ut tempus egestas ligula, a cursus metus. Nulla et eros quis mauris aliquam fermentum. Quisque vitae lorem porttitor, euismod sem sit amet, euismod nibh. Donec accumsan nisi nec massa fermentum congue. Ut interdum imperdiet velit, vel dapibus est vestibulum ac. Cras sodales porttitor arcu, sed molestie sem blandit ornare. Curabitur tempus urna egestas mi convallis porttitor. Etiam non dignissim felis. In condimentum fermentum ex eget interdum. Vestibulum eget elit neque. Nulla suscipit risus sit amet nunc suscipit pellentesque. Nullam porta eros eros, lobortis venenatis elit ultrices ac. Duis felis justo, porta nec turpis in, consectetur scelerisque velit. Ut suscipit turpis a rutrum mattis. Sed pretium fermentum commodo. Duis luctus sagittis consequat. In tincidunt efficitur enim vel egestas. Phasellus vestibulum quis neque semper condimentum. Nullam feugiat nisl nibh, et eleifend dui pulvinar in. Aenean sodales ornare dui, a placerat massa. In feugiat aliquam felis eget cursus. Donec placerat ex ut orci ornare gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et sapien vitae risus imperdiet ultricies sed at ligula. Donec malesuada sem a efficitur bibendum. Nam auctor elementum arcu, id eleifend nibh interdum eget. Nam fringilla turpis gravida ligula luctus, vitae gravida erat blandit. Fusce in ante orci. Aliquam tempor elementum lacus non dapibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum sollicitudin, nunc vitae vehicula ornare, nulla augue condimentum mi, eu porttitor diam felis tempor tortor.
+    </p>
+</div>
+
+<div id="option3_content" class="toggle-content">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo nibh vitae arcu sollicitudin accumsan. Ut tempus egestas ligula, a cursus metus. Nulla et eros quis mauris aliquam fermentum. Quisque vitae lorem porttitor, euismod sem sit amet, euismod nibh. Donec accumsan nisi nec massa fermentum congue. Ut interdum imperdiet velit, vel dapibus est vestibulum ac. Cras sodales porttitor arcu, sed molestie sem blandit ornare. Curabitur tempus urna egestas mi convallis porttitor. Etiam non dignissim felis. In condimentum fermentum ex eget interdum. Vestibulum eget elit neque. Nulla suscipit risus sit amet nunc suscipit pellentesque. Nullam porta eros eros, lobortis venenatis elit ultrices ac. Duis felis justo, porta nec turpis in, consectetur scelerisque velit. Ut suscipit turpis a rutrum mattis. Sed pretium fermentum commodo. Duis luctus sagittis consequat. In tincidunt efficitur enim vel egestas. Phasellus vestibulum quis neque semper condimentum. Nullam feugiat nisl nibh, et eleifend dui pulvinar in. Aenean sodales ornare dui, a placerat massa. In feugiat aliquam felis eget cursus. Donec placerat ex ut orci ornare gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et sapien vitae risus imperdiet ultricies sed at ligula. Donec malesuada sem a efficitur bibendum. Nam auctor elementum arcu, id eleifend nibh interdum eget. Nam fringilla turpis gravida ligula luctus, vitae gravida erat blandit. Fusce in ante orci. Aliquam tempor elementum lacus non dapibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum sollicitudin, nunc vitae vehicula ornare, nulla augue condimentum mi, eu porttitor diam felis tempor tortor. Vivamus ut elementum tortor. Nunc ut ante mauris. Aliquam fermentum sagittis ligula. Donec convallis, lorem sit amet faucibus auctor, magna sapien pulvinar ante, ac suscipit turpis lorem nec sem. Vestibulum lobortis blandit ipsum in congue. Maecenas semper mi ultrices, gravida neque pellentesque, ultricies nibh. Pellentesque nec interdum quam, in vehicula libero. Suspendisse malesuada fringilla auctor. Sed non mollis ante. Maecenas vel tincidunt magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas dignissim consequat libero, sit amet pulvinar est dictum dapibus. Sed sapien sem, vehicula sed lectus quis, ullamcorper commodo nisl. Sed arcu lorem, ultrices eu felis auctor, malesuada vestibulum odio. Nullam at urna et ligula gravida facilisis. Integer tempor, purus molestie facilisis scelerisque, nulla eros varius leo, at venenatis nulla massa et ex. Mauris sit amet sem tristique, ultricies nisi a, tempor dui. Fusce sollicitudin semper orci, ac maximus odio hendrerit ut. Aenean sit amet ipsum sed felis viverra congue quis eget eros. Phasellus ut elementum neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer blandit ligula a malesuada tempus. Sed posuere, dui sit amet mollis malesuada, felis lacus ultrices nunc, id posuere diam massa non est.
+    </p>
+</div>
+
+<div id="option4_content" class="toggle-content">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo nibh vitae arcu sollicitudin accumsan. Ut tempus egestas ligula, a cursus metus. Nulla et eros quis mauris aliquam fermentum. Quisque vitae lorem porttitor, euismod sem sit amet, euismod nibh. Donec accumsan nisi nec massa fermentum congue. Ut interdum imperdiet velit, vel dapibus est vestibulum ac. Cras sodales porttitor arcu, sed molestie sem blandit ornare. Curabitur tempus urna egestas mi convallis porttitor. Etiam non dignissim felis. In condimentum fermentum ex eget interdum. Vestibulum eget elit neque. Nulla suscipit risus sit amet nunc suscipit pellentesque. Nullam porta eros eros, lobortis venenatis elit ultrices ac. Duis felis justo, porta nec turpis in, consectetur scelerisque velit. Ut suscipit turpis a rutrum mattis. Sed pretium fermentum commodo. Duis luctus sagittis consequat. In tincidunt efficitur enim vel egestas. Phasellus vestibulum quis neque semper condimentum. Nullam feugiat nisl nibh, et eleifend dui pulvinar in. Aenean sodales ornare dui, a placerat massa. In feugiat aliquam felis eget cursus. Donec placerat ex ut orci ornare gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et sapien vitae risus imperdiet ultricies sed at ligula. Donec malesuada sem a efficitur bibendum. Nam auctor elementum arcu, id eleifend nibh interdum eget. Nam fringilla turpis gravida ligula luctus, vitae gravida erat blandit. Fusce in ante orci. Aliquam tempor elementum lacus non dapibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum sollicitudin, nunc vitae vehicula ornare, nulla augue condimentum mi, eu porttitor diam felis tempor tortor. Vivamus ut elementum tortor. Nunc ut ante mauris. Aliquam fermentum sagittis ligula. Donec convallis, lorem sit amet faucibus auctor, magna sapien pulvinar ante, ac suscipit turpis lorem nec sem. Vestibulum lobortis blandit ipsum in congue. Maecenas semper mi ultrices, gravida neque pellentesque, ultricies nibh. Pellentesque nec interdum quam, in vehicula libero. Suspendisse malesuada fringilla auctor. Sed non mollis ante. Maecenas vel tincidunt magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas dignissim consequat libero, sit amet pulvinar est dictum dapibus. Sed sapien sem, vehicula sed lectus quis, ullamcorper commodo nisl. Sed arcu lorem, ultrices eu felis auctor, malesuada vestibulum odio. Nullam at urna et ligula gravida facilisis. Integer tempor, purus molestie facilisis scelerisque, nulla eros varius leo, at venenatis nulla massa et ex. Mauris sit amet sem tristique, ultricies nisi a, tempor dui. Fusce sollicitudin semper orci, ac maximus odio hendrerit ut. Aenean sit amet ipsum sed felis viverra congue quis eget eros. Phasellus ut elementum neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer blandit ligula a malesuada tempus. Sed posuere, dui sit amet mollis malesuada, felis lacus ultrices nunc, id posuere diam massa non est.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo nibh vitae arcu sollicitudin accumsan. Ut tempus egestas ligula, a cursus metus. Nulla et eros quis mauris aliquam fermentum. Quisque vitae lorem porttitor, euismod sem sit amet, euismod nibh. Donec accumsan nisi nec massa fermentum congue. Ut interdum imperdiet velit, vel dapibus est vestibulum ac. Cras sodales porttitor arcu, sed molestie sem blandit ornare. Curabitur tempus urna egestas mi convallis porttitor. Etiam non dignissim felis. In condimentum fermentum ex eget interdum. Vestibulum eget elit neque. Nulla suscipit risus sit amet nunc suscipit pellentesque. Nullam porta eros eros, lobortis venenatis elit ultrices ac. Duis felis justo, porta nec turpis in, consectetur scelerisque velit. Ut suscipit turpis a rutrum mattis. Sed pretium fermentum commodo. Duis luctus sagittis consequat. In tincidunt efficitur enim vel egestas. Phasellus vestibulum quis neque semper condimentum. Nullam feugiat nisl nibh, et eleifend dui pulvinar in. Aenean sodales ornare dui, a placerat massa. In feugiat aliquam felis eget cursus. Donec placerat ex ut orci ornare gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et sapien vitae risus imperdiet ultricies sed at ligula. Donec malesuada sem a efficitur bibendum. Nam auctor elementum arcu, id eleifend nibh interdum eget. Nam fringilla turpis gravida ligula luctus, vitae gravida erat blandit. Fusce in ante orci. Aliquam tempor elementum lacus non dapibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum sollicitudin, nunc vitae vehicula ornare, nulla augue condimentum mi, eu porttitor diam felis tempor tortor. Vivamus ut elementum tortor. Nunc ut ante mauris. Aliquam fermentum sagittis ligula. Donec convallis, lorem sit amet faucibus auctor, magna sapien pulvinar ante, ac suscipit turpis lorem nec sem. Vestibulum lobortis blandit ipsum in congue. Maecenas semper mi ultrices, gravida neque pellentesque, ultricies nibh. Pellentesque nec interdum quam, in vehicula libero. Suspendisse malesuada fringilla auctor. Sed non mollis ante. Maecenas vel tincidunt magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas dignissim consequat libero, sit amet pulvinar est dictum dapibus. Sed sapien sem, vehicula sed lectus quis, ullamcorper commodo nisl. Sed arcu lorem, ultrices eu felis auctor, malesuada vestibulum odio. Nullam at urna et ligula gravida facilisis. Integer tempor, purus molestie facilisis scelerisque, nulla eros varius leo, at venenatis nulla massa et ex. Mauris sit amet sem tristique, ultricies nisi a, tempor dui. Fusce sollicitudin semper orci, ac maximus odio hendrerit ut. Aenean sit amet ipsum sed felis viverra congue quis eget eros. Phasellus ut elementum neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer blandit ligula a malesuada tempus. Sed posuere, dui sit amet mollis malesuada, felis lacus ultrices nunc, id posuere diam massa non est.
+    </p>
+</div>
+
+<!-- Add more div elements for content related to other toggle options -->
+
+<script>
+// Event listener to handle content update and slider position on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateToggleContent();
+    setSliderPosition(document.querySelector('.switch-input:checked'));
+    // Event listeners for radio input changes
+    const allSwitchInputs = document.querySelectorAll('.switch-input');
+    allSwitchInputs.forEach(function(input) {
+        input.addEventListener('change', function(){
+        updateToggleContent();
+        setSliderPosition(input);
+        });
+    });
+});
+
+// Function to handle toggle switch resize events
+function resizeEventforToggleSwitch(){
+    updateToggleContent();
+    setSliderPosition(document.querySelector('.switch-input:checked'));
+};
+
+// Function to update content visibility based on selected toggle option
+function updateToggleContent() {
+  const inputs = document.querySelectorAll('.toggle-switch .switch-input');
+  inputs.forEach((input) => {
+    const contentId = input.value + '_content';
+    const content = document.getElementById(contentId);
+    content.style.display = input.checked ? 'block' : 'none';
+  });
+}
+
+// Function to set the position of the slider based on the selected option
+// This function can adjust the top, lef, width, and height of the slider according to the selected options
+function setSliderPosition(selectedInput) {
+  const slider = document.querySelector('.switch-slider');
+  if (!slider) return;
+
+  if (selectedInput) {
+    const selectedInputLabel = document.querySelector('label[for="' + selectedInput.id + '"]');
+    // Update slider position and dimensions based on the selected label
+    slider.style.left = selectedInputLabel.offsetLeft + 'px';
+    slider.style.top = selectedInputLabel.offsetTop + 'px';
+    slider.style.width = selectedInputLabel.offsetWidth + 'px';
+    slider.style.height = selectedInputLabel.offsetHeight + 'px';
+  } else {
+    // Default to the first label if no input is selected (e.g., before any click events)
+    const firstLabel = document.querySelector('.switch-label');
+    slider.style.left = firstLabel.offsetLeft + 'px';
+    slider.style.top = firstLabel.offsetTop + 'px';
+    slider.style.width = firstLabel.offsetWidth + 'px';
+    slider.style.height = firstLabel.offsetHeight + 'px';
+  }
+}
+</script>
+</body>
+</html>
